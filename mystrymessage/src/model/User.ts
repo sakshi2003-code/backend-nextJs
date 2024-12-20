@@ -6,7 +6,7 @@ export interface Message extends Document{
 }
 
 // message schema 
-const  MessageSchema:Schema<Message>=new Schema({
+const  MessageSchema:Schema<Message>=new mongoose.Schema({
     content:{
         type:String,
         required:true
@@ -31,7 +31,7 @@ export interface User extends Document{
 }
 
 // user schema 
-const UserSchema:Schema<User>=new Schema({
+const UserSchema:Schema<User>=new mongoose.Schema({
    username:{
         type:String,
         required:[true,"Username is required"],
@@ -71,5 +71,5 @@ const UserSchema:Schema<User>=new Schema({
 
 // export schema  
 
-const UserModel=(mongoose.models.User as mongoose.Model<User>)||(mongoose.model<User>("User,UserSchema"))
+const UserModel=(mongoose.models.User as mongoose.Model<User>)||(mongoose.model<User>("User",UserSchema))
 export default UserModel;
